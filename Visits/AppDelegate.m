@@ -10,6 +10,7 @@
 
 @interface AppDelegate ()
 @property CLLocationManager* manager;
+
 @end
 
 @implementation AppDelegate
@@ -31,6 +32,9 @@
     UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
 
+    if (self.dataSource == nil) {
+        self.dataSource = [NSMutableArray array];    
+    }
     return YES;
 }
 
@@ -76,6 +80,8 @@
     UILocalNotification *notification = [UILocalNotification new];
     notification.alertBody = message;
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    
+    [self.dataSource addObject:visit];
 }
 
 
