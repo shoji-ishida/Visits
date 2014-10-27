@@ -430,6 +430,7 @@
 				6281F41719F6202500380DDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6281F41819F6202500380DDC /* Build configuration list for PBXNativeTarget "VisitsTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +439,7 @@
 				6281F41A19F6202500380DDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
