@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+static NSString * const TableViewVisitCellIdentifier = @"TableViewVisitCell";
 @interface ViewController : UIViewController
 
 @end

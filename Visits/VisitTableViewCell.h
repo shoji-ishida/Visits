@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *accuracy;
 @property (weak, nonatomic) IBOutlet UILabel *arrival;
 @property (weak, nonatomic) IBOutlet UILabel *departure;
+
++ (CGFloat)rowHeight;
 @end

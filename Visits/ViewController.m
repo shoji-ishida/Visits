@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "Visit.h"
+#import "VisitTableViewCell.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -37,6 +38,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    UINib *nib = [UINib nibWithNibName:TableViewVisitCellIdentifier bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"Cell"];
+    [self.searchDisplayController.searchResultsTableView registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,4 +86,8 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [VisitTableViewCell rowHeight];
+}
 @end
