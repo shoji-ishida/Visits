@@ -85,8 +85,7 @@
     
     //緯度経度・到着時間・出発時間をローカル通知で表示
     NSMutableString* message = [NSMutableString string];
-    [message appendString:[NSString stringWithFormat:@"緯度：%@\n",latitude]];
-    [message appendString:[NSString stringWithFormat:@"経度：%@\n",longitude]];
+    [message appendString:[NSString stringWithFormat:@"緯度：%@ 経度：%@\n",latitude, longitude]];
     [message appendString:[NSString stringWithFormat:@"半径：%f\n",visit.horizontalAccuracy]];
     [message appendString:[NSString stringWithFormat:@"到着時間：%@\n",arrivalDate]];
     if (departureDate != nil) {
