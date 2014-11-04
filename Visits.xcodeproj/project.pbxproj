@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622D86CD1A0913F7007A5C1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622D86CC1A0913F7007A5C1F /* MapKit.framework */; };
+		622D86D01A091830007A5C1F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622D86CF1A091830007A5C1F /* MapViewController.m */; };
 		6281F3F819F6202400380DDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281F3F719F6202400380DDC /* main.m */; };
 		6281F3FB19F6202400380DDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281F3FA19F6202400380DDC /* AppDelegate.m */; };
 		6281F3FE19F6202400380DDC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281F3FD19F6202400380DDC /* ViewController.m */; };
@@ -33,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622D86CC1A0913F7007A5C1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		622D86CE1A091830007A5C1F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		622D86CF1A091830007A5C1F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6281F3F219F6202400380DDC /* Visits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6281F3F619F6202400380DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6281F3F719F6202400380DDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6281F41E1A0216BD00380DDC /* CoreData.framework in Frameworks */,
+				622D86CD1A0913F7007A5C1F /* MapKit.framework in Frameworks */,
 				6281F41C19F6210300380DDC /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +85,7 @@
 		6281F3E919F6202400380DDC = {
 			isa = PBXGroup;
 			children = (
+				622D86CC1A0913F7007A5C1F /* MapKit.framework */,
 				6281F41F1A02177900380DDC /* VisitModel.xcdatamodeld */,
 				6281F4221A02351300380DDC /* Visit.h */,
 				6281F4231A02351300380DDC /* Visit.m */,
@@ -111,6 +118,8 @@
 				6281F3F519F6202400380DDC /* Supporting Files */,
 				62B5E2DA1A08C91D00D4B85C /* VisitTableViewCell.h */,
 				62B5E2DB1A08C91D00D4B85C /* VisitTableViewCell.m */,
+				622D86CE1A091830007A5C1F /* MapViewController.h */,
+				622D86CF1A091830007A5C1F /* MapViewController.m */,
 			);
 			path = Visits;
 			sourceTree = "<group>";
@@ -197,6 +206,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 						};
 					};
 					6281F40A19F6202500380DDC = {
@@ -256,6 +268,7 @@
 				6281F3FB19F6202400380DDC /* AppDelegate.m in Sources */,
 				6281F3F819F6202400380DDC /* main.m in Sources */,
 				6281F4211A02177900380DDC /* VisitModel.xcdatamodeld in Sources */,
+				622D86D01A091830007A5C1F /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
