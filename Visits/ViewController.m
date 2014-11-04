@@ -55,13 +55,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cellForRowAtIndexPath");
+    NSLog(@"cellForRowAtIndexPath: %ld", (long)indexPath.row);
     NSString *cellIdentifier = @"Cell";
     VisitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // セルが作成されていないか?
     if (!cell) { // yes
         // セルを作成
+        NSLog(@"create new cell");
         cell = [[VisitTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
@@ -79,6 +80,7 @@
         departureDate = [outputFormatter stringFromDate:visit.departure];
     }
     NSString* recordDate = [outputFormatter stringFromDate:visit.recordDate];
+    NSLog(@"%@", recordDate);
     
     cell.record.text = recordDate;
     cell.latitude.text = [visit.latitude stringValue];
