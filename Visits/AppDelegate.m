@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "Visit.h"
 
 @interface AppDelegate ()
 @property CLLocationManager* manager;
+
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @end
 
@@ -33,6 +38,7 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
 
     if (self.dataSource == nil) {
+        NSLog(@"Allocated array");
         self.dataSource = [NSMutableArray array];    
     }
     return YES;
@@ -67,6 +73,13 @@
     
     NSString* arrivalDate = [outputFormatter stringFromDate:visit.arrivalDate];
     NSString* departureDate = [outputFormatter stringFromDate:visit.departureDate];
+
+    //NSString* departureDate;
+    //if ([visit.departureDate isEqualToDate: [NSDate distantFuture]]) {
+    //    departureDate = nil;
+    //} else {
+    //    departureDate = [outputFormatter stringFromDate:visit.departureDate];
+    //}
     NSString* latitude = [NSString stringWithFormat:@"%f",visit.coordinate.latitude];
     NSString* longitude = [NSString stringWithFormat:@"%f",visit.coordinate.longitude];
     
@@ -74,8 +87,12 @@
     NSMutableString* message = [NSMutableString string];
     [message appendString:[NSString stringWithFormat:@"緯度：%@\n",latitude]];
     [message appendString:[NSString stringWithFormat:@"経度：%@\n",longitude]];
+    [message appendString:[NSString stringWithFormat:@"半径：%f\n",visit.horizontalAccuracy]];
     [message appendString:[NSString stringWithFormat:@"到着時間：%@\n",arrivalDate]];
-    [message appendString:[NSString stringWithFormat:@"出発時間：%@\n",departureDate]];
+    if (departureDate != nil) {
+        [message appendString:[NSString stringWithFormat:@"出発時間：%@\n",departureDate]];
+    }
+    
     
     UILocalNotification *notification = [UILocalNotification new];
     notification.alertBody = message;
@@ -99,4 +116,14 @@
     }
 }
 
+- (void)addVisit:(CLVisit *) visit {
+    Visit *event = (Visit *)[NSEntityDescription insertNewObjectForEntityForName:@"Visit"
+                                                          inManagedObjectContext:self.managedObjectContext];
+    [event setLatitude:[NSNumber numberWithDouble:visit.coordinate.latitude]];
+    [event setLongitude:[NSNumber numberWithDouble:visit.coordinate.longitude]];
+    [event setAccuracy:[NSNumber numberWithDouble:visit.horizontalAccuracy]];
+    [event setRecordDate:[NSDate date]];
+    [event setArrival:visit.arrivalDate];
+    [event setDeparture:visit.departureDate];
+}
 @end
