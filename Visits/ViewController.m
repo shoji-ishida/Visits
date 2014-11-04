@@ -57,12 +57,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cellForRowAtIndexPath");
     NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    VisitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // セルが作成されていないか?
     if (!cell) { // yes
         // セルを作成
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[VisitTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     // 
@@ -72,17 +72,21 @@
     [outputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSString* arrivalDate = [outputFormatter stringFromDate:visit.arrival];
-    NSString* departureDate = [outputFormatter stringFromDate:visit.departure];
+    NSString* departureDate;
+    if ([visit.departure isEqualToDate: [NSDate distantFuture]]) {
+        departureDate = @"N/A";
+    } else {
+        departureDate = [outputFormatter stringFromDate:visit.departure];
+    }
+    NSString* recordDate = [outputFormatter stringFromDate:visit.recordDate];
     
-    //緯度経度・到着時間・出発時間をローカル通知で表示
-    NSMutableString* message = [NSMutableString string];
-    [message appendString:[NSString stringWithFormat:@"緯度：%@\n",visit.latitude]];
-    [message appendString:[NSString stringWithFormat:@"経度：%@\n",visit.longitude]];
-    [message appendString:[NSString stringWithFormat:@"半径：%@\n",visit.accuracy]];
-    [message appendString:[NSString stringWithFormat:@"到着時間：%@\n",arrivalDate]];
-    [message appendString:[NSString stringWithFormat:@"出発時間：%@\n",departureDate]];
+    cell.record.text = recordDate;
+    cell.latitude.text = [visit.latitude stringValue];
+    cell.longitude.text = [visit.longitude stringValue];
+    cell.accuracy.text = [visit.accuracy stringValue];
+    cell.arrival.text = arrivalDate;
+    cell.departure.text = departureDate;
     
-    cell.textLabel.text = message;
     return cell;
 }
 

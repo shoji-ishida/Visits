@@ -64,14 +64,14 @@
     [outputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSString* arrivalDate = [outputFormatter stringFromDate:visit.arrivalDate];
-    NSString* departureDate = [outputFormatter stringFromDate:visit.departureDate];
+    //NSString* departureDate = [outputFormatter stringFromDate:visit.departureDate];
 
-    //NSString* departureDate;
-    //if ([visit.departureDate isEqualToDate: [NSDate distantFuture]]) {
-    //    departureDate = nil;
-    //} else {
-    //    departureDate = [outputFormatter stringFromDate:visit.departureDate];
-    //}
+    NSString* departureDate;
+    if ([visit.departureDate isEqualToDate: [NSDate distantFuture]]) {
+        departureDate = nil;
+    } else {
+        departureDate = [outputFormatter stringFromDate:visit.departureDate];
+    }
     NSString* latitude = [NSString stringWithFormat:@"%f",visit.coordinate.latitude];
     NSString* longitude = [NSString stringWithFormat:@"%f",visit.coordinate.longitude];
     
