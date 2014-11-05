@@ -85,10 +85,8 @@
 		6281F3E919F6202400380DDC = {
 			isa = PBXGroup;
 			children = (
+				62B5E2DD1A09E9C300D4B85C /* Visit Model */,
 				622D86CC1A0913F7007A5C1F /* MapKit.framework */,
-				6281F41F1A02177900380DDC /* VisitModel.xcdatamodeld */,
-				6281F4221A02351300380DDC /* Visit.h */,
-				6281F4231A02351300380DDC /* Visit.m */,
 				6281F41D1A0216BD00380DDC /* CoreData.framework */,
 				6281F41B19F6210300380DDC /* CoreLocation.framework */,
 				6281F3F419F6202400380DDC /* Visits */,
@@ -113,13 +111,13 @@
 				6281F3FA19F6202400380DDC /* AppDelegate.m */,
 				6281F3FC19F6202400380DDC /* ViewController.h */,
 				6281F3FD19F6202400380DDC /* ViewController.m */,
-				6281F40219F6202400380DDC /* Images.xcassets */,
-				6281F40419F6202400380DDC /* LaunchScreen.xib */,
-				6281F3F519F6202400380DDC /* Supporting Files */,
 				62B5E2DA1A08C91D00D4B85C /* VisitTableViewCell.h */,
 				62B5E2DB1A08C91D00D4B85C /* VisitTableViewCell.m */,
 				622D86CE1A091830007A5C1F /* MapViewController.h */,
 				622D86CF1A091830007A5C1F /* MapViewController.m */,
+				6281F40219F6202400380DDC /* Images.xcassets */,
+				6281F40419F6202400380DDC /* LaunchScreen.xib */,
+				6281F3F519F6202400380DDC /* Supporting Files */,
 			);
 			path = Visits;
 			sourceTree = "<group>";
@@ -150,6 +148,16 @@
 				6281F41019F6202500380DDC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62B5E2DD1A09E9C300D4B85C /* Visit Model */ = {
+			isa = PBXGroup;
+			children = (
+				6281F41F1A02177900380DDC /* VisitModel.xcdatamodeld */,
+				6281F4221A02351300380DDC /* Visit.h */,
+				6281F4231A02351300380DDC /* Visit.m */,
+			);
+			name = "Visit Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

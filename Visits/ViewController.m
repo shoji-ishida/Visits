@@ -9,11 +9,12 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "VisitTableViewCell.h"
+#import "MapViewController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @end
 
 @implementation ViewController
@@ -113,6 +114,22 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [VisitTableViewCell rowHeight];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _selectedIndexPath = indexPath;
+    // セグエを呼び出して画面遷移します。
+    [self performSegueWithIdentifier:@"showMap" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MapViewController *mapViewController = segue.destinationViewController;
+    Visit *visit = [self.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
+    mapViewController.latitude = visit.latitude;
+    mapViewController.longitude = visit.longitude;
+    mapViewController.accuracy = visit.accuracy;
 }
 
 #pragma mark - Fetched results controller

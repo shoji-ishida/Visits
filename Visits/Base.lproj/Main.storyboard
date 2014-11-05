@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FVG-3Q-LBo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
         <!--Visit-->
@@ -23,14 +23,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="X2m-bQ-58g"/>
                     <connections>
                         <outlet property="tableView" destination="fiy-M6-UzX" id="bVB-cr-cQM"/>
-                        <segue destination="EeK-9N-Nbu" kind="show" identifier="showMap" id="PIr-Et-ZEM"/>
+                        <segue destination="EeK-9N-Nbu" kind="show" identifier="showMap" id="Rww-SB-ZJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="333"/>
+            <point key="canvasLocation" x="1999" y="333"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="VS5-S1-jrI">
@@ -50,13 +51,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UM0-Qq-dTu"/>
                     <connections>
                         <outlet property="mapView" destination="nPU-3r-Xtm" id="Gch-NB-1zr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kz6-Km-6ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="333"/>
+            <point key="canvasLocation" x="3033" y="333"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="t8j-0l-Spg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FVG-3Q-LBo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6JW-ok-wBC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rSG-lF-Jf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09F-Zn-QRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1187" y="333"/>
         </scene>
     </scenes>
 </document>

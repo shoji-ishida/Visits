@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view.
     
     self.mapView.mapType = MKMapTypeStandard;
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(35.697223, 139.769239);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
     //MKCoordinateSpan span = MKCoordinateSpanMake(0.2, 0.2);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 150., 150.);
     
@@ -31,7 +31,7 @@
     [self.mapView setRegion:region];
     [self.mapView setDelegate:self];
     
-    MKCircle * circle = [MKCircle circleWithCenterCoordinate:coord radius:150.];
+    MKCircle * circle = [MKCircle circleWithCenterCoordinate:coord radius:[self.accuracy doubleValue]];
     [self.mapView addOverlay:circle];
 
 }

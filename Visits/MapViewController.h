@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MapViewController : UIViewController
-
+@property (nonatomic, copy) NSNumber *latitude;
+@property (nonatomic, copy) NSNumber *longitude;
+@property (nonatomic, copy) NSNumber *accuracy;
 @end
