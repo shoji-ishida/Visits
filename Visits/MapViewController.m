@@ -23,13 +23,14 @@
     
     self.mapView.mapType = MKMapTypeStandard;
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
-    //MKCoordinateSpan span = MKCoordinateSpanMake(0.2, 0.2);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 150., 150.);
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = MKCoordinateRegionMake(coord, span);
     
     //[self.mapView setShowsPointsOfInterest:YES];
     [self.mapView setShowsUserLocation:YES];
     [self.mapView setRegion:region];
     [self.mapView setDelegate:self];
+    [self.mapView setCenterCoordinate:coord animated:YES];
     
     MKCircle * circle = [MKCircle circleWithCenterCoordinate:coord radius:[self.accuracy doubleValue]];
     [self.mapView addOverlay:circle];
@@ -44,7 +45,6 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView
             rendererForOverlay:(id<MKOverlay>)overlay
 {
-    // ※2 今回はサンプルなので可視化します
     if ([overlay isKindOfClass:[MKCircle class]]){
         MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
         renderer.lineWidth = 1.0;

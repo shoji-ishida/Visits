@@ -75,7 +75,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cellForRowAtIndexPath: %ld", (long)indexPath.row);
+    //NSLog(@"cellForRowAtIndexPath: %ld", (long)indexPath.row);
     
     NSString *cellIdentifier = @"Cell";
     VisitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier  forIndexPath:indexPath];
