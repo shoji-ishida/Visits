@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
+#import "Visit.h"
+
 
 static NSString * const TableViewVisitCellIdentifier = @"TableViewVisitCell";
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
