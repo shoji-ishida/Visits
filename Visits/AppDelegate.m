@@ -118,6 +118,8 @@
     [event setDeparture:visit.departureDate];
     
     [self saveContext];
+    
+    [NSFetchedResultsController deleteCacheWithName:@"Root"];
 }
 
 #pragma mark - Core Data stack
