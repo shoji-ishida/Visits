@@ -23,14 +23,13 @@
     
     self.mapView.mapType = MKMapTypeStandard;
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(coord, span);
-    
+    //MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    //MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, [self.accuracy doubleValue], [self.accuracy doubleValue]);
+        
     //[self.mapView setShowsPointsOfInterest:YES];
     [self.mapView setShowsUserLocation:YES];
-    [self.mapView setRegion:region];
+    //[self.mapView setRegion:region];
     [self.mapView setDelegate:self];
-    [self.mapView setCenterCoordinate:coord animated:YES];
     
     MKCircle * circle = [MKCircle circleWithCenterCoordinate:coord radius:[self.accuracy doubleValue]];
     [self.mapView addOverlay:circle];
@@ -42,12 +41,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"ViewDidAppear");
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+    //MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, [self.accuracy doubleValue], [self.accuracy doubleValue]);
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView
             rendererForOverlay:(id<MKOverlay>)overlay
 {
     if ([overlay isKindOfClass:[MKCircle class]]){
         MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
-        renderer.lineWidth = 1.0;
+        renderer.lineWidth = 2.0;
         renderer.strokeColor = [UIColor redColor];
         renderer.fillColor = [UIColor redColor];
         renderer.alpha = 0.1;
