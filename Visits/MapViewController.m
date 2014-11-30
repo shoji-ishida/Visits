@@ -51,6 +51,9 @@
     [self.mapView setRegion:region animated:YES];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:[self.latitude doubleValue] longitude:[self.longitude doubleValue]];
     [MapViewController reverseGeocodeLocation:location];
+    MKPointAnnotation* pin = [[MKPointAnnotation alloc] init];
+    pin.coordinate = coord;
+    [self.mapView addAnnotation:pin];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView
@@ -67,6 +70,24 @@
     return overlay;
 }
 
+/*
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id )annotation
+{
+    static NSString* Identifier = @"PinAnnotationIdentifier";
+    MKPinAnnotationView* pinView = (MKPinAnnotationView *)[mapView
+                                                           dequeueReusableAnnotationViewWithIdentifier:Identifier];
+    if (pinView == nil) {
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                  reuseIdentifier:Identifier];
+        pinView.animatesDrop = YES;
+        return pinView;
+    }
+    pinView.annotation = annotation;
+    return pinView;
+}
+*/
+
 + (void)reverseGeocodeLocation:(CLLocation *)location
 {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -75,10 +96,11 @@
          if ([placemarks count] > 0) {
              
              CLPlacemark *placemark = (CLPlacemark *)[placemarks lastObject];
-             NSLog(@"%@", placemark);
+             NSLog(@"%@", placemark.areasOfInterest);
         }
      }];
 }
+
 /*
 #pragma mark - Navigation
 
