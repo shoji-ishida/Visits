@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FVG-3Q-LBo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FVG-3Q-LBo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fiy-M6-UzX">
-                                <rect key="frame" x="21" y="35" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fiy-M6-UzX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -26,8 +26,8 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="fiy-M6-UzX" secondAttribute="trailing" constant="-37" id="3eP-pb-c5b"/>
                             <constraint firstItem="fiy-M6-UzX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="9oo-Aj-tZO"/>
-                            <constraint firstItem="fiy-M6-UzX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="35" id="BU8-Ni-snI"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fiy-M6-UzX" secondAttribute="bottom" constant="-35" id="ULQ-Dl-auA"/>
+                            <constraint firstItem="fiy-M6-UzX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="BU8-Ni-snI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fiy-M6-UzX" secondAttribute="bottom" id="ULQ-Dl-auA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X2m-bQ-58g"/>

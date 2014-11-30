@@ -45,9 +45,12 @@
     NSLog(@"ViewDidAppear");
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
     //MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, [self.accuracy doubleValue], [self.accuracy doubleValue]);
+    double accuracy = [self.accuracy doubleValue] * 1.5f;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, accuracy, accuracy);
     
     [self.mapView setRegion:region animated:YES];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:[self.latitude doubleValue] longitude:[self.longitude doubleValue]];
+    [MapViewController reverseGeocodeLocation:location];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView
@@ -64,6 +67,18 @@
     return overlay;
 }
 
++ (void)reverseGeocodeLocation:(CLLocation *)location
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:
+     ^(NSArray* placemarks, NSError* error) {
+         if ([placemarks count] > 0) {
+             
+             CLPlacemark *placemark = (CLPlacemark *)[placemarks lastObject];
+             NSLog(@"%@", placemark);
+        }
+     }];
+}
 /*
 #pragma mark - Navigation
 
