@@ -120,6 +120,8 @@ didSelectAnnotationView:(MKAnnotationView *)view
              NSLog(@"%@", placemark.thoroughfare);
              NSLog(@"%@", placemark.subThoroughfare);
              NSLog(@"%@", placemark.region);
+             NSLog(@"%@", placemark.areasOfInterest);
+
         }
      }];
 }
