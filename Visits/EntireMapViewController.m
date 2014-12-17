@@ -98,8 +98,7 @@
     }
     
     NSArray *moArray = [fetchedResultsController fetchedObjects];
-    for (int i = 0; i < moArray.count; i++) {
-        Visit *visit = [moArray objectAtIndex:i];
+    for (Visit *visit in moArray) {
         if (![visit.departure isEqualToDate: [NSDate distantFuture]]) {
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([visit.latitude doubleValue], [visit.longitude doubleValue]);
             MKPointAnnotation* pin = [[MKPointAnnotation alloc] init];
