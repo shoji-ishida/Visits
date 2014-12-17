@@ -20,6 +20,7 @@
 		6281F41E1A0216BD00380DDC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281F41D1A0216BD00380DDC /* CoreData.framework */; };
 		6281F4211A02177900380DDC /* VisitModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6281F41F1A02177900380DDC /* VisitModel.xcdatamodeld */; };
 		6281F4241A02351300380DDC /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6281F4231A02351300380DDC /* Visit.m */; };
+		628A39191A412A3300B2CDF9 /* EntireMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A39181A412A3300B2CDF9 /* EntireMapViewController.m */; };
 		62B5E2D81A08C7D600D4B85C /* TableViewVisitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62B5E2D71A08C7D600D4B85C /* TableViewVisitCell.xib */; };
 		62B5E2DC1A08C91D00D4B85C /* VisitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E2DB1A08C91D00D4B85C /* VisitTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,8 @@
 		6281F4201A02177900380DDC /* VisitModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VisitModel.xcdatamodel; sourceTree = "<group>"; };
 		6281F4221A02351300380DDC /* Visit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visit.h; sourceTree = "<group>"; };
 		6281F4231A02351300380DDC /* Visit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Visit.m; sourceTree = "<group>"; };
+		628A39171A412A3300B2CDF9 /* EntireMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntireMapViewController.h; sourceTree = "<group>"; };
+		628A39181A412A3300B2CDF9 /* EntireMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntireMapViewController.m; sourceTree = "<group>"; };
 		62B5E2D71A08C7D600D4B85C /* TableViewVisitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewVisitCell.xib; sourceTree = "<group>"; };
 		62B5E2DA1A08C91D00D4B85C /* VisitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewCell.h; sourceTree = "<group>"; };
 		62B5E2DB1A08C91D00D4B85C /* VisitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewCell.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 		6281F3F419F6202400380DDC /* Visits */ = {
 			isa = PBXGroup;
 			children = (
+				628A39171A412A3300B2CDF9 /* EntireMapViewController.h */,
+				628A39181A412A3300B2CDF9 /* EntireMapViewController.m */,
 				6281F3F919F6202400380DDC /* AppDelegate.h */,
 				6281F3FA19F6202400380DDC /* AppDelegate.m */,
 				6281F3FC19F6202400380DDC /* ViewController.h */,
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628A39191A412A3300B2CDF9 /* EntireMapViewController.m in Sources */,
 				6281F3FE19F6202400380DDC /* ViewController.m in Sources */,
 				62B5E2DC1A08C91D00D4B85C /* VisitTableViewCell.m in Sources */,
 				6281F4241A02351300380DDC /* Visit.m in Sources */,
